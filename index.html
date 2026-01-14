@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Official Tech Bro Purity Test</title>
+    <link rel="icon" type="image/png" href="assets/computer.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background-color: #ffefbf;
+            color: #000000;
+            line-height: 1.5;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 20px auto;
+        }
+
+        .caution {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .intro {
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .instructions {
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .instructions p {
+            margin-bottom: 8px;
+        }
+
+        .questions {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .questions li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eeeeee;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .questions li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .questions input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .questions label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .question-number {
+            font-weight: bold;
+            margin-right: 5px;
+            min-width: 30px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: #c8e6c9;
+            color: #1a3d1a;
+            border: 2px solid #a5d6a7;
+            padding: 18px 50px;
+            font-size: 22px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #b9dbb9;
+            border-color: #8bc98b;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #cccccc;
+        }
+
+        .footer a {
+            color: #000080;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/logo.png" alt="The Official Tech Bro Purity Test" class="logo">
+
+    <p class="caution">Caution: This is not a bucket list. Completion of all items on this test will likely result in death.</p>
+
+    <p class="intro">
+        The 2026 purity test for computer science majors, founders, and tech-oriented people alike.
+    </p>
+
+    <div class="instructions">
+        <p><strong>Instructions:</strong></p>
+        <p>Check the box for each item that you have done. Your score will be calculated based on the number of items left unchecked — a higher score indicates greater "purity."</p>
+    </div>
+
+    <ol class="questions">
+        <li>
+            <input type="checkbox" id="q1">
+            <label for="q1"><span class="question-number">1.</span> Have said "works on my machine"?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q2">
+            <label for="q2"><span class="question-number">2.</span> Broke production?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q3">
+            <label for="q3"><span class="question-number">3.</span> Created a new branch and cherry-picked changes because your current branch felt unfixable?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q4">
+            <label for="q4"><span class="question-number">4.</span> Committed changes with a message like "ACTUALLY final final fix 2"?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q5">
+            <label for="q5"><span class="question-number">5.</span> Approved a PR without reviewing it?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q6">
+            <label for="q6"><span class="question-number">6.</span> Used an exact code snippet from Stack Overflow in your own code?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q7">
+            <label for="q7"><span class="question-number">7.</span> Debugged for hours only to find a missing semicolon or bracket?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q8">
+            <label for="q8"><span class="question-number">8.</span> Force-pushed to main?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q9">
+            <label for="q9"><span class="question-number">9.</span> Use print debugging as your primary debugging method?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q10">
+            <label for="q10"><span class="question-number">10.</span> Fully refactored a project using a different language or framework?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q11">
+            <label for="q11"><span class="question-number">11.</span> Used AI to change one line of code that you could've done faster without prompting AI?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q12">
+            <label for="q12"><span class="question-number">12.</span> Put a GPT wrapper project on your resume?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q13">
+            <label for="q13"><span class="question-number">13.</span> Coded / vibe-coded an app to solve a personal problem?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q14">
+            <label for="q14"><span class="question-number">14.</span> Have an AI IDE, Claude, or GPT subscription?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q15">
+            <label for="q15"><span class="question-number">15.</span> Used AI to generate comments or documentation?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q16">
+            <label for="q16"><span class="question-number">16.</span> Switched to a different LLM when the current one wasn't working?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q17">
+            <label for="q17"><span class="question-number">17.</span> Used AI during an interview or assessment?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q18">
+            <label for="q18"><span class="question-number">18.</span> Used AI to message someone on a dating app?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q19">
+            <label for="q19"><span class="question-number">19.</span> Had several AI agents or LLMs running at the same time?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q20">
+            <label for="q20"><span class="question-number">20.</span> Self-hosted your own LLM?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q21">
+            <label for="q21"><span class="question-number">21.</span> Read or skimmed the "Attention Is All You Need" paper?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q22">
+            <label for="q22"><span class="question-number">22.</span> Pushed secrets or API keys to a public GitHub repo?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q23">
+            <label for="q23"><span class="question-number">23.</span> Contributed to an open-source project?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q24">
+            <label for="q24"><span class="question-number">24.</span> Starred a repo and never looked at it again?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q25">
+            <label for="q25"><span class="question-number">25.</span> Attended a hackathon?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q26">
+            <label for="q26"><span class="question-number">26.</span> Attended 5+ hackathons?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q27">
+            <label for="q27"><span class="question-number">27.</span> Attended a hackathon just for the free food?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q28">
+            <label for="q28"><span class="question-number">28.</span> Flew somewhere to attend a hackathon?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q29">
+            <label for="q29"><span class="question-number">29.</span> Won a hackathon?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q30">
+            <label for="q30"><span class="question-number">30.</span> Put a project on your resume or bio before having a working prototype?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q31">
+            <label for="q31"><span class="question-number">31.</span> Applied to a VC?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q32">
+            <label for="q32"><span class="question-number">32.</span> Used "0→1" to describe a project?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q33">
+            <label for="q33"><span class="question-number">33.</span> Pitched your startup or "billion-dollar idea" at a party?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q34">
+            <label for="q34"><span class="question-number">34.</span> Described your product as "it's like X but for Y"?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q35">
+            <label for="q35"><span class="question-number">35.</span> Flew to SF or NYC for career or tech purposes?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q36">
+            <label for="q36"><span class="question-number">36.</span> Cold-DM'd a recruiter?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q37">
+            <label for="q37"><span class="question-number">37.</span> Completed 3+ interview rounds only to get rejected or ghosted?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q38">
+            <label for="q38"><span class="question-number">38.</span> Reneged a job or internship for a better offer?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q39">
+            <label for="q39"><span class="question-number">39.</span> Been laid off or rescinded?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q40">
+            <label for="q40"><span class="question-number">40.</span> Made a job application tracking spreadsheet?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q41">
+            <label for="q41"><span class="question-number">41.</span> Interviewed or applied for other jobs during work hours?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q42">
+            <label for="q42"><span class="question-number">42.</span> Added someone else's contributions to a project on your resume or application?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q43">
+            <label for="q43"><span class="question-number">43.</span> Received a certificate for completing a bootcamp or course?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q44">
+            <label for="q44"><span class="question-number">44.</span> Pulled an all-nighter to ship a feature?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q45">
+            <label for="q45"><span class="question-number">45.</span> Coded at a party?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q46">
+            <label for="q46"><span class="question-number">46.</span> Flew somewhere primarily to "lock in"?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q47">
+            <label for="q47"><span class="question-number">47.</span> Solved a technical problem in your dreams or while trying to fall asleep?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q48">
+            <label for="q48"><span class="question-number">48.</span> Left work later than 7 p.m.?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q49">
+            <label for="q49"><span class="question-number">49.</span> Left work later than 11 p.m.?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q50">
+            <label for="q50"><span class="question-number">50.</span> Attended standup in bed or pajamas?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q51">
+            <label for="q51"><span class="question-number">51.</span> Have a tech Twitter?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q52">
+            <label for="q52"><span class="question-number">52.</span> Have a Substack or blog?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q53">
+            <label for="q53"><span class="question-number">53.</span> Read Hacker News?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q54">
+            <label for="q54"><span class="question-number">54.</span> Been in the cscareers.dev Discord server?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q55">
+            <label for="q55"><span class="question-number">55.</span> Have a personal website?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q56">
+            <label for="q56"><span class="question-number">56.</span> Made a meme or cracked a joke related to tech or computer science?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q57">
+            <label for="q57"><span class="question-number">57.</span> Tried learning or know Vim keybinds?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q58">
+            <label for="q58"><span class="question-number">58.</span> Use an indie web browser (e.g. NOT Chrome, Safari, Edge, or Firefox)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q59">
+            <label for="q59"><span class="question-number">59.</span> Use Linux as your primary OS?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q60">
+            <label for="q60"><span class="question-number">60.</span> Use or have used Arch Linux (btw)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q61">
+            <label for="q61"><span class="question-number">61.</span> Use dark mode exclusively for everything?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q62">
+            <label for="q62"><span class="question-number">62.</span> Use Notion or Obsidian regularly?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q63">
+            <label for="q63"><span class="question-number">63.</span> Own an Apple Watch or Whoop?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q64">
+            <label for="q64"><span class="question-number">64.</span> Built a home server or homelab?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q65">
+            <label for="q65"><span class="question-number">65.</span> Own Arc'teryx clothing?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q66">
+            <label for="q66"><span class="question-number">66.</span> Own an Oura Ring?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q67">
+            <label for="q67"><span class="question-number">67.</span> Built your own mechanical keyboard?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q68">
+            <label for="q68"><span class="question-number">68.</span> Gone bouldering or climbing?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q69">
+            <label for="q69"><span class="question-number">69.</span> Go to a bouldering gym regularly?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q70">
+            <label for="q70"><span class="question-number">70.</span> Attempted 75 Hard or one of its variants?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q71">
+            <label for="q71"><span class="question-number">71.</span> Have a caffeine addiction?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q72">
+            <label for="q72"><span class="question-number">72.</span> Drank Soylent or similar liquid meal replacements instead of proper meals?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q73">
+            <label for="q73"><span class="question-number">73.</span> Sleep on only a mattress or the floor (no bed frame)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q74">
+            <label for="q74"><span class="question-number">74.</span> Gone to a rave or festival?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q75">
+            <label for="q75"><span class="question-number">75.</span> Done psychedelics?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q76">
+            <label for="q76"><span class="question-number">76.</span> Been drunk at a company event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q77">
+            <label for="q77"><span class="question-number">77.</span> Done drugs at a company event (other than alcohol)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q78">
+            <label for="q78"><span class="question-number">78.</span> Got someone's LinkedIn at a party?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q79">
+            <label for="q79"><span class="question-number">79.</span> Asked someone out at a tech event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q80">
+            <label for="q80"><span class="question-number">80.</span> Been asked out at a tech event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q81">
+            <label for="q81"><span class="question-number">81.</span> Hooked up with someone at a tech event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q82">
+            <label for="q82"><span class="question-number">82.</span> Dated someone in tech?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q83">
+            <label for="q83"><span class="question-number">83.</span> Dated someone from your workplace?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q84">
+            <label for="q84"><span class="question-number">84.</span> Rescheduled or canceled a date because you "needed to lock in"?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q85">
+            <label for="q85"><span class="question-number">85.</span> Brought a date to your company office or work event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q86">
+            <label for="q86"><span class="question-number">86.</span> Built something to impress someone you were interested in?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q87">
+            <label for="q87"><span class="question-number">87.</span> Lived in a "hacker house" (over 50% engineers working on the same product or company)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q88">
+            <label for="q88"><span class="question-number">88.</span> Been part of a university tech-related club?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q89">
+            <label for="q89"><span class="question-number">89.</span> Been to a tech event that wasn't a hackathon (e.g., conference or job fair)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q90">
+            <label for="q90"><span class="question-number">90.</span> Met an engineer in a foreign country?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q91">
+            <label for="q91"><span class="question-number">91.</span> Use Signal regularly?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q92">
+            <label for="q92"><span class="question-number">92.</span> Used Partiful to host or attend an event?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q93">
+            <label for="q93"><span class="question-number">93.</span> Sent a calendar invite to meet with a friend?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q94">
+            <label for="q94"><span class="question-number">94.</span> Own crypto?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q95">
+            <label for="q95"><span class="question-number">95.</span> Bought NVIDIA stock?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q96">
+            <label for="q96"><span class="question-number">96.</span> Listened to a STEM/tech-related podcast (Huberman, Lex Friedman, Dwarkesh)?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q97">
+            <label for="q97"><span class="question-number">97.</span> Completed the Blind 75?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q98">
+            <label for="q98"><span class="question-number">98.</span> Completed the NeetCode 150?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q99">
+            <label for="q99"><span class="question-number">99.</span> Completed 300+ LeetCode questions?</label>
+        </li>
+        <li>
+            <input type="checkbox" id="q100">
+            <label for="q100"><span class="question-number">100.</span> Have or had an addiction to a Riot Games title?</label>
+        </li>
+    </ol>
+
+    <div class="button-container">
+        <button class="btn" onclick="calculateScore()">Calculate My Score!</button>
+        <button class="btn" onclick="clearCheckboxes()">Clear checkboxes</button>
+    </div>
+
+    <div class="footer">
+        <p>The Rice Purity Test — A tradition since 1924</p>
+        <p>This test is intended for entertainment purposes only.</p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const checkboxes = document.querySelectorAll('.questions input[type="checkbox"]');
+            let checkedCount = 0;
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkedCount++;
+                }
+            });
+            
+            const score = 100 - checkedCount;
+            
+            window.location.href = `results.html?score=${score}`;
+        }
+
+        function clearCheckboxes() {
+            const checkboxes = document.querySelectorAll('.questions input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+    </script>
+</body>
+</html>
+

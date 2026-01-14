@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Results - The Official Tech Bro Purity Test</title>
+    <link rel="icon" type="image/png" href="assets/computer.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background-color: #ffefbf;
+            color: #000000;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 30px auto;
+        }
+
+        .intro {
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .caution {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .score-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-label {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .score-number {
+            font-size: 100px;
+            font-weight: bold;
+            color: #c41e3a;
+            line-height: 1;
+        }
+
+        .verdict {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid #d4c4a8;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .verdict-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a3d1a;
+            margin-bottom: 12px;
+        }
+
+        .verdict-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            font-style: italic;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #e8b89d;
+            color: #000;
+            border: 1px solid #d4a088;
+            padding: 14px 30px;
+            font-size: 18px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            cursor: pointer;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #daa88a;
+            border-color: #c49078;
+        }
+
+        .thank-you {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            padding-top: 15px;
+        }
+
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copied-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copied-toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/logo.png" alt="The Official Tech Bro Purity Test" class="logo">
+
+    <p class="caution">Caution: This is not a bucket list. Completion of all items on this test will likely result in death.</p>
+
+    <p class="intro">
+        The 2026 purity test for computer science majors, founders, and tech-oriented people alike. 
+    </p>
+
+    <div class="score-section">
+        <div class="score-label">Your score:</div>
+        <div class="score-number" id="score-value">--</div>
+    </div>
+
+    <div class="verdict">
+        <div class="verdict-title" id="verdict-title">Loading...</div>
+        <div class="verdict-text" id="verdict-text">Calculating your tech bro status...</div>
+    </div>
+
+    <div class="button-container">
+        <a href="index.html" class="btn">Take again!</a>
+        <button class="btn" onclick="copyLink()">Copy Link</button>
+        <a class="btn" id="share-x-btn" href="#" target="_blank">Share on X</a>
+    </div>
+
+    <p class="thank-you">Thank you for your submission!</p>
+
+    <div class="footer">
+        <p>The Tech Bro Purity Test was created by <a href="https://twitter.com/keveenwong" target="_blank">@keveenwong</a>, inspired by Rice University.</p>
+    </div>
+
+    <div class="copied-toast" id="copied-toast">Link copied to clipboard!</div>
+
+    <script>
+        function getScoreFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const score = parseInt(params.get('score'), 10);
+            return isNaN(score) ? null : Math.max(0, Math.min(100, score));
+        }
+
+        function getVerdict(score) {
+            if (score >= 97) {
+                return {
+                    title: "Tech Infant",
+                    text: "You probably aren't tech-oriented at all. Congrats on being a well-adjusted human being!"
+                };
+            } else if (score >= 90) {
+                return {
+                    title: "Tech-Curious Normie 👀",
+                    text: "You've dipped your toes into the tech bro waters but haven't fully submerged. Maybe you've attended one too many networking events or caught yourself saying 'disrupt' unironically. There's still hope for you—just stay away from crypto Twitter and founder podcasts."
+                };
+            } else if (score >= 80) {
+                return {
+                    title: "Budding Techie 🌿",
+                    text: "The transformation has begun. You've probably optimized your morning routine, have strong opinions about productivity apps, and think cold plunges are 'interesting.' Your LinkedIn is getting suspiciously active. Consider touching grass before it's too late."
+                };
+            } else if (score >= 70) {
+                return {
+                    title: "Certified Tech Bro in Training 📈",
+                    text: "You're deep in the sauce now. You've likely quoted Naval Ravikant in conversation, have a Notion setup that rivals a small company's, and genuinely believe you'll retire by 35. Your non-tech friends are starting to avoid you at parties."
+                };
+            } else if (score >= 60) {
+                return {
+                    title: "Solidly Tech-Pilled 💊",
+                    text: "There's no going back. You've probably told someone to 'build in public,' have opinions about SF neighborhoods, and think everyone should learn to code. You've considered starting a podcast at least three times. Your Twitter bio has way too many emojis and job titles."
+                };
+            } else if (score >= 50) {
+                return {
+                    title: "Full Stack Tech Bro 🚀",
+                    text: "You're not just in tech—you ARE tech. You've likely angel invested in a friend's startup, have a standing desk AND a walking pad, and think sleep is for people without ambition. You unironically use the word 'alpha' and have strong opinions about protein intake."
+                };
+            } else if (score >= 40) {
+                return {
+                    title: "Venture-Scale Tech Lord 💰",
+                    text: "Your entire personality is your job. You've probably been on a podcast, have a blue check, and think 'hustle culture' is a compliment. You've told someone they 'just don't get it' when they questioned your 80-hour work weeks. Your dating profile mentions your startup."
+                };
+            } else if (score >= 30) {
+                return {
+                    title: "Silicon Valley Elite 🏆",
+                    text: "You're basically a walking TechCrunch headline. You've probably raised a seed round, have a personal brand, and think Y Combinator is more prestigious than Harvard. You've said 'we're changing the world' about an app that delivers snacks. Your wardrobe is 90% Patagonia vests."
+                };
+            } else if (score >= 20) {
+                return {
+                    title: "Transcendent Tech Overlord 👁️",
+                    text: "You've achieved a level of tech bro-ness most can only dream of. You've likely been featured in The Information, have opinions about AGI timelines, and think sleep-tracking is a hobby. You've definitely told someone to 'move fast and break things' as genuine life advice."
+                };
+            } else if (score >= 10) {
+                return {
+                    title: "Legendary Tech Titan 🌟",
+                    text: "You're not a person anymore—you're a brand. You've probably spoken at multiple conferences, have a Wikipedia page in your drafts, and think billionaires are 'misunderstood.' Your entire friend group is founders and VCs. You've unironically said 'let's take this offline' in a personal conversation."
+                };
+            } else {
+                return {
+                    title: "Final Form: The Ultimate Tech Bro 🤖",
+                    text: "Congratulations, you've checked nearly every box. You ARE the algorithm. You've probably started multiple companies, have a net worth that's a rounding error for Elon, and genuinely believe you're saving humanity. Your blood type is Series A. You've replaced all human connection with async Slack messages. Touch grass? You've probably tried to disrupt grass."
+                };
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.origin + window.location.pathname.replace('results.html', 'index.html');
+            navigator.clipboard.writeText(url).then(() => {
+                const toast = document.getElementById('copied-toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        function updateShareLinks(score) {
+            const shareText = `I scored ${score}/100 on the Tech Bro Purity Test! How tech-pilled are you?`;
+            const shareUrl = window.location.href;
+            
+            const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            document.getElementById('share-x-btn').href = xUrl;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const score = getScoreFromURL();
+            
+            if (score === null) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('score-value').textContent = score;
+            
+            const verdict = getVerdict(score);
+            document.getElementById('verdict-title').textContent = verdict.title;
+            document.getElementById('verdict-text').textContent = verdict.text;
+            
+            updateShareLinks(score);
+        });
+    </script>
+</body>
+</html>
